@@ -39,6 +39,7 @@ class Authentication extends StatelessWidget {
     String email,
     String displayName,
     String password,
+    void Function() success,
     void Function(Exception e) error,
   ) registerAccount;
   final void Function() signOut;
@@ -87,6 +88,7 @@ class Authentication extends StatelessWidget {
                 email,
                 displayName,
                 password,
+                () => {},
                 (e) =>
                     _showErrorDialog(context, 'Failed to create account', e));
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_hand/provider/applicationState.dart';
 // import 'package:firebase_core/firebase_core.dart'; // new
 // import 'package:firebase_auth/firebase_auth.dart'; // new
 // import 'package:provider/provider.dart'; // new
@@ -13,15 +14,37 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  String _error = "";
+
   TextEditingController mailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  void _login() {
+    ApplicationState().signInWithEmailAndPassword(
+        mailController.text,
+        passwordController.text,
+        () => Navigator.of(context).push(_createRoute(Home())),
+        (e) => {
+              setState(() {
+                _error = e.message.toString();
+              })
+            });
+  }
+
   void _signUp() {
-    print(mailController.text);
-    print(nameController.text);
-    print(passwordController.text);
-    Navigator.of(context).push(_createRoute(Home()));
+    ApplicationState().startLoginFlow();
+
+    ApplicationState().registerAccount(
+        mailController.text,
+        nameController.text,
+        passwordController.text,
+        () => _login(),
+        (e) => {
+              setState(() {
+                _error = e.message.toString();
+              })
+            });
   }
 
   @override
@@ -52,6 +75,14 @@ class _SignUpState extends State<SignUp> {
                   fontWeight: FontWeight.w500,
                   fontSize: 30),
             )),
+        Container(
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+          // alignment: Alignment.center,
+          child: Text(
+            _error,
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
         Container(
           padding: EdgeInsets.all(10),
           child: TextField(

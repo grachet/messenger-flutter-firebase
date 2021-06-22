@@ -18,8 +18,10 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   String _error = "";
 
-  TextEditingController mailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController mailController =
+      TextEditingController(text: "guest@gmail.com");
+  TextEditingController passwordController =
+      TextEditingController(text: "password");
 
   void _login() {
     ApplicationState().startLoginFlow();
@@ -32,7 +34,6 @@ class _LoginState extends State<Login> {
                 _error = e.message.toString();
               })
             });
-    // _showErrorDialog(context, 'Invalid email', e)
   }
 
   @override
@@ -96,14 +97,14 @@ class _LoginState extends State<Login> {
             ),
           ),
         ),
-        Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          alignment: Alignment.center,
-          child: Text(
-            'No account ? Try guest/guest',
-            style: TextStyle(color: Colors.blue),
-          ),
-        ),
+        // Container(
+        //   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        //   alignment: Alignment.center,
+        //   child: Text(
+        //     'No account ? Try guest@gmail.com/password',
+        //     style: TextStyle(color: Colors.blue),
+        //   ),
+        // ),
         Container(
             height: 65,
             padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
