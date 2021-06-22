@@ -26,9 +26,11 @@ class Profil extends StatelessWidget {
             'My items',
             style: TextStyle(color: Colors.black),
           ),
-          const Text(
-            "Mail",
-            style: TextStyle(fontSize: 15, color: Colors.black38),
+          Consumer<ApplicationState>(
+            builder: (context, appState, _) => Text(
+              appState.email ?? "Mail",
+              style: TextStyle(fontSize: 15, color: Colors.black38),
+            ),
           ),
         ]),
         actions: [
@@ -38,10 +40,9 @@ class Profil extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: StyledButton(
                 onPressed: () {
-                  print(ApplicationState().email);
-                  // ApplicationState().signOut();
-                  // Navigator.popUntil(
-                  //     context, (Route<dynamic> predicate) => predicate.isFirst);
+                  ApplicationState().signOut();
+                  Navigator.popUntil(
+                      context, (Route<dynamic> predicate) => predicate.isFirst);
                 },
                 child: const Text('Logout'),
               ),
