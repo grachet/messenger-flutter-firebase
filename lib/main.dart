@@ -30,7 +30,7 @@ class _State extends State<MyApp> {
             width: 150,
             height: 150,
             padding: EdgeInsets.all(10),
-            child: Image.asset('images/logo.png')),
+            child: Image.asset('assets/logo.png')),
         Container(
             alignment: Alignment.center,
             padding: EdgeInsets.all(10),
