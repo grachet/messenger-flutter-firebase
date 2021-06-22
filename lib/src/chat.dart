@@ -35,6 +35,12 @@ class _ChatState extends State<Chat> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    onFieldSubmitted: (text) async {
+                      if (_formKey.currentState!.validate()) {
+                        await widget.addMessage(_controller.text);
+                        _controller.clear();
+                      }
+                    },
                     controller: _controller,
                     decoration: const InputDecoration(
                       hintText: 'Leave a message',
@@ -48,20 +54,28 @@ class _ChatState extends State<Chat> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                StyledButton(
+                IconButton(
+                  icon: const Icon(
+                    Icons.thumb_up,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
+                  onPressed: () async {
+                    await widget.addMessage("👍");
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.send,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       await widget.addMessage(_controller.text);
                       _controller.clear();
                     }
                   },
-                  child: Row(
-                    children: const [
-                      Icon(Icons.send),
-                      SizedBox(width: 4),
-                      Text('SEND'),
-                    ],
-                  ),
                 ),
               ],
             ),
