@@ -16,16 +16,22 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String _error = "";
+
   TextEditingController mailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   void _login() {
-    print(mailController.text);
-    print(passwordController.text);
-    Navigator.of(context).push(_createRoute(Home()));
-
     ApplicationState().startLoginFlow();
-    // ApplicationState().signInWithEmailAndPassword();
+    ApplicationState().signInWithEmailAndPassword(
+        mailController.text,
+        passwordController.text,
+        () => Navigator.of(context).push(_createRoute(Home())),
+        (e) => {
+              setState(() {
+                _error = e.message.toString();
+              })
+            });
     // _showErrorDialog(context, 'Invalid email', e)
   }
 
@@ -54,11 +60,19 @@ class _LoginState extends State<Login> {
                   fontSize: 30),
             )),
         Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
             child: Text(
               'Connexion',
               style: TextStyle(fontSize: 20),
             )),
+        Container(
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+          // alignment: Alignment.center,
+          child: Text(
+            _error,
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
         Container(
           padding: EdgeInsets.all(10),
           child: TextField(

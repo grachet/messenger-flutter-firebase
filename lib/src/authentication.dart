@@ -31,6 +31,7 @@ class Authentication extends StatelessWidget {
   final void Function(
     String email,
     String password,
+    void Function() success,
     void Function(Exception e) error,
   ) signInWithEmailAndPassword;
   final void Function() cancelRegistration;
@@ -67,7 +68,7 @@ class Authentication extends StatelessWidget {
         return PasswordForm(
           email: email!,
           login: (email, password) {
-            signInWithEmailAndPassword(email, password,
+            signInWithEmailAndPassword(email, password, () => {},
                 (e) => _showErrorDialog(context, 'Failed to sign in', e));
           },
         );

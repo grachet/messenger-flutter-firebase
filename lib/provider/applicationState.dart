@@ -128,6 +128,7 @@ class ApplicationState extends ChangeNotifier {
   Future<void> signInWithEmailAndPassword(
     String email,
     String password,
+    void Function() successCallback,
     void Function(FirebaseAuthException e) errorCallback,
   ) async {
     try {
@@ -135,6 +136,7 @@ class ApplicationState extends ChangeNotifier {
         email: email,
         password: password,
       );
+      successCallback();
     } on FirebaseAuthException catch (e) {
       errorCallback(e);
     }
