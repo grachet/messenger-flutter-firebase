@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:second_hand/provider/applicationState.dart';
-
-// import 'package:firebase_core/firebase_core.dart'; // new
-// import 'package:firebase_auth/firebase_auth.dart'; // new
-// import 'package:provider/provider.dart'; // new
-
-// import 'src/authentication.dart'; // new
-// import '../src/widgets.dart';
 import '../src/signUp.dart';
 import '../src/home.dart';
 
 class Login extends StatefulWidget {
+  Login() {
+    ApplicationState().init();
+    ApplicationState().startLoginFlow();
+  }
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -24,7 +22,6 @@ class _LoginState extends State<Login> {
       TextEditingController(text: "password");
 
   void _login() {
-    ApplicationState().startLoginFlow();
     ApplicationState().signInWithEmailAndPassword(
         mailController.text,
         passwordController.text,

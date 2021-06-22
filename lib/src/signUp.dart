@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:second_hand/provider/applicationState.dart';
-// import 'package:firebase_core/firebase_core.dart'; // new
-// import 'package:firebase_auth/firebase_auth.dart'; // new
-// import 'package:provider/provider.dart'; // new
-
-// import 'src/authentication.dart'; // new
-// import 'src/widgets.dart';
 import '../src/home.dart';
 
 class SignUp extends StatefulWidget {
