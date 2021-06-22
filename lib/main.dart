@@ -25,10 +25,13 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Second Hand',
       theme: ThemeData(
-        buttonTheme: Theme.of(context).buttonTheme.copyWith(
-              highlightColor: Colors.deepPurple,
+        appBarTheme: Theme.of(context).appBarTheme.copyWith(
+              backgroundColor: Colors.white,
             ),
-        primarySwatch: Colors.deepPurple,
+        buttonTheme: Theme.of(context).buttonTheme.copyWith(
+              highlightColor: Colors.blue,
+            ),
+        primarySwatch: Colors.blue,
         textTheme: GoogleFonts.robotoTextTheme(
           Theme.of(context).textTheme,
         ),
@@ -46,14 +49,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Hand'),
+        leading: Padding(
+            padding: EdgeInsets.all(5), child: Image.asset('assets/logo.png')),
+        title: Container(
+            height: 40,
+            child: const TextField(
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(),
+                  hintText: 'Searchs',
+                  isDense: true,
+                  contentPadding: EdgeInsets.all(8)),
+            )),
+        actions: [
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              child: Icon(
+                Icons.account_circle,
+                color: Colors.blue,
+              )),
+        ],
       ),
       body: ListView(
         children: <Widget>[
-          Image.asset('assets/logo.png'),
-          const SizedBox(height: 8),
-          const IconAndDetail(Icons.calendar_today, 'October 30'),
-          const IconAndDetail(Icons.location_city, 'San Francisco'),
           Consumer<ApplicationState>(
             builder: (context, appState, _) => Authentication(
               email: appState.email,

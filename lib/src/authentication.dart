@@ -54,7 +54,7 @@ class Authentication extends StatelessWidget {
                 onPressed: () {
                   startLoginFlow();
                 },
-                child: const Text('RSVP'),
+                child: const Text('Login'),
               ),
             ),
           ],
@@ -139,7 +139,7 @@ class Authentication extends StatelessWidget {
               },
               child: const Text(
                 'OK',
-                style: TextStyle(color: Colors.deepPurple),
+                style: TextStyle(color: Colors.blue),
               ),
             ),
           ],
