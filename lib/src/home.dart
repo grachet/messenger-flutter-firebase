@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../src/profil.dart';
 import '../provider/applicationState.dart';
 
+import '../src/chat.dart';
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -44,10 +46,9 @@ class Home extends StatelessWidget {
             builder: (context, appState, _) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GuestBook(
-                  addMessage: (message) =>
-                      appState.addMessageToGuestBook(message),
-                  messages: appState.guestBookMessages,
+                Chat(
+                  addMessage: (message) => appState.addMessageToChat(message),
+                  messages: appState.chatMessages,
                 ),
               ],
             ),

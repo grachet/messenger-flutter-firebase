@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
             alignment: Alignment.center,
             padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
             child: Text(
-              'SECOND HAND',
+              'SECOND HAND CHAT',
               style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.w500,
