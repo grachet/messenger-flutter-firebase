@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
-
 // import 'package:firebase_core/firebase_core.dart'; // new
 // import 'package:firebase_auth/firebase_auth.dart'; // new
 // import 'package:provider/provider.dart'; // new
 
 // import 'src/authentication.dart'; // new
-// import '../src/widgets.dart';
-import '../src/signUp.dart';
+// import 'src/widgets.dart';
 import '../src/home.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void _login() {
+  void _signUp() {
     print(nameController.text);
     print(passwordController.text);
     Navigator.of(context).push(_createRoute(Home()));
@@ -37,22 +35,20 @@ class _LoginState extends State<Login> {
             width: 150,
             height: 150,
             padding: EdgeInsets.all(10),
-            child: Image.asset('assets/logo.png')),
+            child: Icon(
+              Icons.account_circle,
+              color: Colors.blue,
+              size: 150,
+            )),
         Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
+            padding: EdgeInsets.all(10),
             child: Text(
-              'SECOND HAND',
+              'Create account',
               style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.w500,
                   fontSize: 30),
-            )),
-        Container(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              'Connexion',
-              style: TextStyle(fontSize: 20),
             )),
         Container(
           padding: EdgeInsets.all(10),
@@ -60,7 +56,17 @@ class _LoginState extends State<Login> {
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'User Name',
+              labelText: 'Mail',
+            ),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(10),
+          child: TextField(
+            controller: nameController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Full Name',
             ),
           ),
         ),
@@ -76,37 +82,30 @@ class _LoginState extends State<Login> {
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          alignment: Alignment.center,
-          child: Text(
-            'No account ? Try guest/guest',
-            style: TextStyle(color: Colors.blue),
-          ),
-        ),
-        Container(
             height: 65,
             padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
             child: ElevatedButton(
               child: Text(
-                'Sign In',
+                'Sign Up',
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                _login();
+                _signUp();
               },
             )),
         Container(
             padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
             child: Row(
               children: <Widget>[
-                Text('Does not have account? '),
+                Text('Already have an account? '),
                 TextButton(
                   child: Text(
-                    'Create',
+                    'Sign in',
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(_createRoute(SignUp()));
+                    Navigator.pop(context);
+                    //signup screen
                   },
                 )
               ],
