@@ -80,26 +80,41 @@ class _ProfilState extends State<Profil> {
         ],
       ),
       body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         children: <Widget>[
-          Text(
-            FirebaseAuth.instance.currentUser!.email ?? "",
-            style: const TextStyle(fontSize: 18),
-          ),
-          Text(
-            "Account creation " +
-                dateFormat.format(
-                    FirebaseAuth.instance.currentUser!.metadata.creationTime ??
-                        new DateTime(0)),
-            style: const TextStyle(fontSize: 18),
-          ),
-          Text(
-            "Last connection " +
-                dateFormat.format(FirebaseAuth
-                        .instance.currentUser!.metadata.lastSignInTime ??
-                    new DateTime(0)),
-            style: const TextStyle(fontSize: 18),
-          ),
           Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              child: Row(children: [
+                Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Icon(Icons.mail),
+                ),
+                Text(
+                  FirebaseAuth.instance.currentUser!.email ?? "",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w800, fontSize: 20),
+                ),
+              ])),
+          Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                "Account creation on " +
+                    dateFormat.format(FirebaseAuth
+                            .instance.currentUser!.metadata.creationTime ??
+                        new DateTime(0)),
+                style: const TextStyle(fontSize: 18),
+              )),
+          Container(
+              margin: const EdgeInsets.only(bottom: 30),
+              child: Text(
+                "Last connection on " +
+                    dateFormat.format(FirebaseAuth
+                            .instance.currentUser!.metadata.lastSignInTime ??
+                        new DateTime(0)),
+                style: const TextStyle(fontSize: 18),
+              )),
+          Container(
+            margin: const EdgeInsets.only(bottom: 10),
             child: TextField(
               controller: nameController,
               decoration: InputDecoration(
