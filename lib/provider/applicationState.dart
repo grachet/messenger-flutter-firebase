@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../src/chat.dart';
+import '../src/widgets.dart';
 
 enum ApplicationLoginState {
   loggedOut,
@@ -83,6 +84,19 @@ class ApplicationState extends ChangeNotifier {
     }
   }
 
+  Future<void> updateDisplayName(
+    String displayName,
+    void Function() successCallback,
+    void Function(FirebaseAuthException e) errorCallback,
+  ) async {
+    try {
+      await FirebaseAuth.instance.currentUser!.updateDisplayName(displayName);
+      successCallback();
+    } on FirebaseAuthException catch (e) {
+      errorCallback(e);
+    }
+  }
+
   void cancelRegistration() {
     _loginState = ApplicationLoginState.emailAddress;
     notifyListeners();
@@ -102,6 +116,41 @@ class ApplicationState extends ChangeNotifier {
     } on FirebaseAuthException catch (e) {
       errorCallback(e);
     }
+  }
+
+  void _showDialog(BuildContext context, String title, String message) {
+    showDialog<void>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            title,
+            style: const TextStyle(fontSize: 24),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                  message,
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            StyledButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                'OK',
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void signOut() {

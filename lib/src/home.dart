@@ -33,7 +33,6 @@ class Home extends StatelessWidget {
                 color: Colors.blue,
                 size: 40,
               ),
-              tooltip: 'Increase volume by 10',
               onPressed: () =>
                   {Navigator.of(context).push(_createRoute(Profil()))},
             ),
