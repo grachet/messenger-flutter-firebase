@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_hand/provider/applicationState.dart';
 
 // import 'package:firebase_core/firebase_core.dart'; // new
 // import 'package:firebase_auth/firebase_auth.dart'; // new
@@ -15,13 +16,17 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController mailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   void _login() {
-    print(nameController.text);
+    print(mailController.text);
     print(passwordController.text);
     Navigator.of(context).push(_createRoute(Home()));
+
+    ApplicationState().startLoginFlow();
+    // ApplicationState().signInWithEmailAndPassword();
+    // _showErrorDialog(context, 'Invalid email', e)
   }
 
   @override
@@ -57,10 +62,11 @@ class _LoginState extends State<Login> {
         Container(
           padding: EdgeInsets.all(10),
           child: TextField(
-            controller: nameController,
+            controller: mailController,
             decoration: InputDecoration(
+              prefixIcon: Icon(Icons.mail),
               border: OutlineInputBorder(),
-              labelText: 'User Name',
+              labelText: 'Mail',
             ),
           ),
         ),
@@ -70,6 +76,7 @@ class _LoginState extends State<Login> {
             obscureText: true,
             controller: passwordController,
             decoration: InputDecoration(
+              prefixIcon: Icon(Icons.lock),
               border: OutlineInputBorder(),
               labelText: 'Password',
             ),

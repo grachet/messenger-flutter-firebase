@@ -13,10 +13,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController mailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   void _signUp() {
+    print(mailController.text);
     print(nameController.text);
     print(passwordController.text);
     Navigator.of(context).push(_createRoute(Home()));
@@ -53,10 +55,11 @@ class _SignUpState extends State<SignUp> {
         Container(
           padding: EdgeInsets.all(10),
           child: TextField(
-            controller: nameController,
+            controller: mailController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Mail',
+              prefixIcon: Icon(Icons.mail),
             ),
           ),
         ),
@@ -67,6 +70,7 @@ class _SignUpState extends State<SignUp> {
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Full Name',
+              prefixIcon: Icon(Icons.account_circle),
             ),
           ),
         ),
@@ -78,6 +82,7 @@ class _SignUpState extends State<SignUp> {
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Password',
+              prefixIcon: Icon(Icons.lock),
             ),
           ),
         ),
