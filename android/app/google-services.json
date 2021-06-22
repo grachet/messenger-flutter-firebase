@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480028441258",
+    "project_id": "second-hand-flutter",
+    "storage_bucket": "second-hand-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480028441258:android:f4393c200c6eae4af7eed3",
+        "android_client_info": {
+          "package_name": "com.example.second_hand"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480028441258-o8d7fcd3ft82cj5866ja1d7qm7r46kiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCemiQQwjMyNRS0P1moWtCRS2IigXJgks0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480028441258-o8d7fcd3ft82cj5866ja1d7qm7r46kiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
