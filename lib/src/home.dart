@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../src/authentication.dart';
 import '../src/widgets.dart';
+import '../src/profil.dart';
 import '../provider/applicationState.dart';
 
 class Home extends StatelessWidget {
@@ -26,34 +27,22 @@ class Home extends StatelessWidget {
             )),
         actions: [
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: Icon(
+            padding: EdgeInsets.symmetric(horizontal: 5),
+            child: IconButton(
+              icon: const Icon(
                 Icons.account_circle,
                 color: Colors.blue,
-              )),
+                size: 40,
+              ),
+              tooltip: 'Increase volume by 10',
+              onPressed: () =>
+                  {Navigator.of(context).push(_createRoute(Profil()))},
+            ),
+          ),
         ],
       ),
       body: ListView(
         children: <Widget>[
-          Consumer<ApplicationState>(
-            builder: (context, appState, _) => Authentication(
-              email: appState.email,
-              loginState: appState.loginState,
-              startLoginFlow: appState.startLoginFlow,
-              verifyEmail: appState.verifyEmail,
-              signInWithEmailAndPassword: appState.signInWithEmailAndPassword,
-              cancelRegistration: appState.cancelRegistration,
-              registerAccount: appState.registerAccount,
-              signOut: appState.signOut,
-            ),
-          ),
-          const Divider(
-            height: 8,
-            thickness: 1,
-            indent: 8,
-            endIndent: 8,
-            color: Colors.grey,
-          ),
           Consumer<ApplicationState>(
             builder: (context, appState, _) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,4 +141,13 @@ class YesNoSelection extends StatelessWidget {
         );
     }
   }
+}
+
+Route _createRoute(Widget widget) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => widget,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return child;
+    },
+  );
 }
