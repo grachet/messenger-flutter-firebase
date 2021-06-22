@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -26,10 +27,35 @@
   <title>second_hand</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyAWxAull-ZECviT2ccwJY4Oqdyo5FezoH4",
+      authDomain: "second-hand-flutter.firebaseapp.com",
+      projectId: "second-hand-flutter",
+      storageBucket: "second-hand-flutter.appspot.com",
+      messagingSenderId: "480028441258",
+      appId: "1:480028441258:web:442315b362187f0ef7eed3",
+      measurementId: "G-WJ67X1WG4Z"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
@@ -94,5 +120,7 @@
       loadMainDartJs();
     }
   </script>
+
 </body>
+
 </html>
