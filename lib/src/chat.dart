@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
-import '../src/widgets.dart';
+import 'package:bubble/bubble.dart';
+// import 'package:bubble/issue_clipper.dart';
 
 class ChatMessage {
   ChatMessage({required this.name, required this.message});
@@ -29,8 +29,27 @@ class _ChatState extends State<Chat> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         for (var message in widget.messages)
-          Paragraph('${message.name}: ${message.message}'),
-        const SizedBox(height: 8),
+          message.name == "Guest2"
+              ? Bubble(
+                  elevation: 0,
+                  alignment: Alignment.centerRight,
+                  margin: BubbleEdges.only(top: 10, right: 10, left: 10),
+                  color: Colors.blue,
+                  nip: BubbleNip.rightTop,
+                  child: Text('${message.name}: ${message.message}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14.0, color: Colors.white)),
+                )
+              : Bubble(
+                  elevation: 0,
+                  alignment: Alignment.centerLeft,
+                  margin: BubbleEdges.only(top: 10, right: 10, left: 10),
+                  color: Colors.grey,
+                  nip: BubbleNip.leftTop,
+                  child: Text('${message.name}: ${message.message}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15.0, color: Colors.white)),
+                ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
