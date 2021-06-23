@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:480028441258:android:f4393c200c6eae4af7eed3",
+        "mobilesdk_app_id": "1:480028441258:android:504940fb2ef39e86f7eed3",
         "android_client_info": {
-          "package_name": "com.example.second_hand"
+          "package_name": "com.grachet.chatter"
         }
       },
       "oauth_client": [

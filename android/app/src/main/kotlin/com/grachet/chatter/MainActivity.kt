@@ -1,4 +1,4 @@
-package com.example.second_hand
+package com.grachet.chatter
 
 import io.flutter.embedding.android.FlutterActivity
 
