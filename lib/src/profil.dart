@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 import '../src/widgets.dart';
 import '../provider/applicationState.dart';
 import 'package:firebase_auth/firebase_auth.dart';

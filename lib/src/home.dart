@@ -11,6 +11,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: Padding(
             padding: EdgeInsets.all(5), child: Image.asset('assets/logo.png')),
@@ -46,13 +47,28 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Chat(
-                  addMessage: (message) => appState.addMessageToChat(message),
                   messages: appState.chatMessages,
                 ),
               ],
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Consumer<ApplicationState>(
+        builder: (context, appState, _) => ChatInput(
+            addMessage: (message) =>
+                appState.addMessageToChat(message).then((_) => null,
+                    onError: (e) => {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(e.message),
+                            action: SnackBarAction(
+                              label: 'Close',
+                              onPressed: () {
+                                // Some code to undo the change.
+                              },
+                            ),
+                          ))
+                        })),
       ),
     );
   }
