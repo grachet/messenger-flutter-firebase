@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../src/chatInput.dart';
+import 'package:chatter/src/chatInput.dart';
 // import 'package:bubble/issue_clipper.dart';
 
 class ChatMessage {

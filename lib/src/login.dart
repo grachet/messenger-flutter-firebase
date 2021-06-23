@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:chatter/provider/applicationState.dart';
-import '../src/signUp.dart';
-import '../src/home.dart';
+import 'package:chatter/src/applicationState.dart';
+import 'package:chatter/src/signUp.dart';
+import 'package:chatter/src/home.dart';
 
 class Login extends StatefulWidget {
   Login() {

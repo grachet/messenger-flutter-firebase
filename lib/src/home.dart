@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../src/profil.dart';
-import '../provider/applicationState.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-import '../src/chat.dart';
+import 'package:chatter/src/profil.dart';
+import 'package:chatter/src/applicationState.dart';
+import 'package:chatter/src/chat.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'provider/applicationState.dart';
+import 'src/applicationState.dart';
 // import 'src/home.dart';
 import 'src/login.dart';
 

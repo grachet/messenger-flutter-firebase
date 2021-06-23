@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:chatter/provider/applicationState.dart';
-import '../src/home.dart';
+import 'package:chatter/src/applicationState.dart';
+import 'package:chatter/src/home.dart';
 
 class SignUp extends StatefulWidget {
   @override

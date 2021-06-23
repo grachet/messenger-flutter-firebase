@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import '../src/chat.dart';
-import '../src/widgets.dart';
+import 'package:chatter/src/chat.dart';
+import 'package:chatter/src/widgets.dart';
 
 enum ApplicationLoginState {
   loggedOut,

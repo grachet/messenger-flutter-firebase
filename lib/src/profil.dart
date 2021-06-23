@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../src/widgets.dart';
-import '../provider/applicationState.dart';
+import 'package:chatter/src/widgets.dart';
+import 'package:chatter/src/applicationState.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Profil extends StatefulWidget {
