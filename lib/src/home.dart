@@ -23,13 +23,9 @@ class Home extends StatelessWidget {
           ),
           Consumer<ApplicationState>(
             builder: (context, appState, _) => Text(
-              appState.email ?? "Me",
+              appState.displayName,
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
-          ),
-          Text(
-            FirebaseAuth.instance.currentUser!.displayName ?? "Me",
-            style: TextStyle(color: Colors.grey, fontSize: 16),
           ),
         ]),
         // title: Container(

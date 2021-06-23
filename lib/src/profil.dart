@@ -18,7 +18,7 @@ class _ProfilState extends State<Profil> {
         nameController.text,
         () => {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('Updated'),
+                content: Text('Pseudo updated'),
                 action: SnackBarAction(
                   label: 'Close',
                   onPressed: () {
@@ -117,7 +117,7 @@ class _ProfilState extends State<Profil> {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.account_circle),
                 border: OutlineInputBorder(),
-                labelText: 'Full Name',
+                labelText: 'Pseudo',
               ),
             ),
           ),

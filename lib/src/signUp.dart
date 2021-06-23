@@ -94,7 +94,7 @@ class _SignUpState extends State<SignUp> {
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Full Name',
+              labelText: 'Pseudo',
               prefixIcon: Icon(Icons.account_circle),
             ),
           ),

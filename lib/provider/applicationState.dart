@@ -59,6 +59,9 @@ class ApplicationState extends ChangeNotifier {
   String? _email;
   String? get email => _email;
 
+  String get displayName =>
+      FirebaseAuth.instance.currentUser!.displayName ?? "Me";
+
   StreamSubscription<QuerySnapshot>? _chatSubscription;
   List<ChatMessage> _chatMessages = [];
   List<ChatMessage> get chatMessages => _chatMessages;
@@ -79,6 +82,7 @@ class ApplicationState extends ChangeNotifier {
         email: email,
         password: password,
       );
+      _email = email;
       successCallback();
     } on FirebaseAuthException catch (e) {
       errorCallback(e);
