@@ -55,12 +55,10 @@ class _ProfilState extends State<Profil> {
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
-            'Profile',
-            style: TextStyle(color: Colors.black),
-          ),
-        ]),
+        title: const Text(
+          'Profile',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 5),

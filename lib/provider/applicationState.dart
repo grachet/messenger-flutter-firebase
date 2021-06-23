@@ -29,7 +29,7 @@ class ApplicationState extends ChangeNotifier {
         _loginState = ApplicationLoginState.loggedIn;
         _chatSubscription = FirebaseFirestore.instance
             .collection('chat')
-            .orderBy('timestamp', descending: false)
+            .orderBy('timestamp', descending: true)
             .snapshots()
             .listen((snapshot) {
           _chatMessages = [];
