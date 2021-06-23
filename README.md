@@ -8,3 +8,8 @@ Functionnalities :
 - Read everybody messages
 - create account/login
 - Change your pseudo 
+
+Dev :
+
+- Flutter run
+- Flutter build appbundle (must add key file)
