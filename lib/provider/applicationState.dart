@@ -38,6 +38,7 @@ class ApplicationState extends ChangeNotifier {
               ChatMessage(
                 name: document.data()['name'] as String,
                 message: document.data()['text'] as String,
+                userId: document.data()['userId'] as String,
               ),
             );
           }

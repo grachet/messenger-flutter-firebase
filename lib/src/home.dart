@@ -4,6 +4,7 @@ import '../src/profil.dart';
 import '../provider/applicationState.dart';
 
 import '../src/chat.dart';
+import '../src/chatInput.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
