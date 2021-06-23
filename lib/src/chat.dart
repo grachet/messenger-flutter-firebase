@@ -19,8 +19,9 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
-  final _formKey = GlobalKey<FormState>(debugLabel: '_ChatState');
-  final _controller = TextEditingController();
+  final _messageController = TextEditingController();
+
+  TextEditingController messageController = TextEditingController(text: "");
 
   @override
   Widget build(BuildContext context) {
@@ -33,33 +34,29 @@ class _ChatState extends State<Chat> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
-            key: _formKey,
             child: Row(
               children: [
                 Expanded(
-                  child: TextFormField(
-                    onFieldSubmitted: (text) async {
-                      if (_formKey.currentState!.validate()) {
-                        await widget.addMessage(_controller.text);
-                        _controller.clear();
+                    child: Container(
+                  height: 45,
+                  child: TextField(
+                    onSubmitted: (text) async {
+                      if (_messageController.text != "") {
+                        await widget.addMessage(_messageController.text);
+                        _messageController.clear();
                       }
                     },
                     decoration: InputDecoration(
+                      border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.white,
-                      // prefixIcon: Icon(Icons.mail),
-                      // border: OutlineInputBorder(),
-                      // labelText: 'Mail',
+                      prefixIcon: Icon(Icons.message),
+                      isDense: true,
+                      contentPadding: EdgeInsets.all(8),
                     ),
-                    controller: _controller,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Enter your message to continue';
-                      }
-                      return null;
-                    },
+                    controller: _messageController,
                   ),
-                ),
+                )),
                 const SizedBox(width: 8),
                 IconButton(
                   icon: const Icon(
@@ -78,9 +75,9 @@ class _ChatState extends State<Chat> {
                     size: 30,
                   ),
                   onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      await widget.addMessage(_controller.text);
-                      _controller.clear();
+                    if (_messageController.text != "") {
+                      await widget.addMessage(_messageController.text);
+                      _messageController.clear();
                     }
                   },
                 ),
