@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../src/chatInput.dart';
 // import 'package:bubble/issue_clipper.dart';
 
 class ChatMessage {
@@ -45,6 +46,20 @@ class _ChatState extends State<Chat> {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15.0, color: Colors.white)),
               ),
+      ChatInput(addMessage: (message) => null
+          // appState.addMessageToChat(message).then((_) => null,
+          //     onError: (e) => {
+          //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          //             content: Text(e.message),
+          //             action: SnackBarAction(
+          //               label: 'Close',
+          //               onPressed: () {
+          //                 // Some code to undo the change.
+          //               },
+          //             ),
+          //           ))
+          //         })),
+          ),
     ]);
   }
 }

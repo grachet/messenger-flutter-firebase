@@ -55,22 +55,22 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Consumer<ApplicationState>(
-        builder: (context, appState, _) => ChatInput(
-            addMessage: (message) =>
-                appState.addMessageToChat(message).then((_) => null,
-                    onError: (e) => {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(e.message),
-                            action: SnackBarAction(
-                              label: 'Close',
-                              onPressed: () {
-                                // Some code to undo the change.
-                              },
-                            ),
-                          ))
-                        })),
-      ),
+      //   bottomNavigationBar: Consumer<ApplicationState>(
+      //     builder: (context, appState, _) => ChatInput(
+      //         addMessage: (message) =>
+      //             appState.addMessageToChat(message).then((_) => null,
+      //                 onError: (e) => {
+      //                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      //                         content: Text(e.message),
+      //                         action: SnackBarAction(
+      //                           label: 'Close',
+      //                           onPressed: () {
+      //                             // Some code to undo the change.
+      //                           },
+      //                         ),
+      //                       ))
+      //                     })),
+      //   ),
     );
   }
 }
