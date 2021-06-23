@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.grachet.chatter">
+   <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="chatter"
+        android:label="Chatter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
