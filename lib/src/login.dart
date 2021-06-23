@@ -22,6 +22,9 @@ class _LoginState extends State<Login> {
       TextEditingController(text: "password");
 
   void _login() {
+    setState(() {
+      _error = "";
+    });
     ApplicationState().signInWithEmailAndPassword(
         mailController.text,
         passwordController.text,
@@ -38,41 +41,26 @@ class _LoginState extends State<Login> {
     return Scaffold(
         body: Center(
             child: ListView(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(30.0),
       shrinkWrap: true,
       children: <Widget>[
         Container(
             alignment: Alignment.center,
             width: 150,
             height: 150,
-            padding: EdgeInsets.all(10),
             child: Image.asset('assets/logo.png')),
         Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
-              'SECOND HAND CHAT',
+              'CHATTER.',
               style: TextStyle(
                   color: Colors.blue,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w900,
                   fontSize: 30),
             )),
         Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-            child: Text(
-              'Connexion',
-              style: TextStyle(fontSize: 20),
-            )),
-        Container(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-          // alignment: Alignment.center,
-          child: Text(
-            _error,
-            style: TextStyle(color: Colors.red),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: TextField(
             controller: mailController,
             decoration: InputDecoration(
@@ -83,7 +71,7 @@ class _LoginState extends State<Login> {
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: TextField(
             obscureText: true,
             controller: passwordController,
@@ -103,8 +91,15 @@ class _LoginState extends State<Login> {
         //   ),
         // ),
         Container(
-            height: 65,
-            padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
+          // alignment: Alignment.center,
+          child: Text(
+            _error,
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+        Container(
+            height: 55,
+            padding: EdgeInsets.only(top: 5),
             child: ElevatedButton(
               child: Text(
                 'Sign In',
@@ -115,7 +110,7 @@ class _LoginState extends State<Login> {
               },
             )),
         Container(
-            padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+            padding: EdgeInsets.only(top: 5),
             child: Row(
               children: <Widget>[
                 Text('Does not have account? '),

@@ -27,8 +27,10 @@ class _SignUpState extends State<SignUp> {
   }
 
   void _signUp() {
+    setState(() {
+      _error = "";
+    });
     ApplicationState().startLoginFlow();
-
     ApplicationState().registerAccount(
         mailController.text,
         nameController.text,
@@ -66,17 +68,9 @@ class _SignUpState extends State<SignUp> {
               'Create account',
               style: TextStyle(
                   color: Colors.blue,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   fontSize: 30),
             )),
-        Container(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-          // alignment: Alignment.center,
-          child: Text(
-            _error,
-            style: TextStyle(color: Colors.red),
-          ),
-        ),
         Container(
           padding: EdgeInsets.all(10),
           child: TextField(
@@ -112,8 +106,16 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
         Container(
-            height: 65,
-            padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          // alignment: Alignment.center,
+          child: Text(
+            _error,
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+        Container(
+            height: 60,
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: ElevatedButton(
               child: Text(
                 'Sign Up',
