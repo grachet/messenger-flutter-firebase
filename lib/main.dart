@@ -19,7 +19,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Second Hand',
+      title: 'Chatter',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[100],
         appBarTheme: Theme.of(context).appBarTheme.copyWith(
