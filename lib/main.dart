@@ -21,6 +21,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Second Hand',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[100],
         appBarTheme: Theme.of(context).appBarTheme.copyWith(
               backgroundColor: Colors.white,
             ),

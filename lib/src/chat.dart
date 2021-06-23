@@ -27,6 +27,9 @@ class _ChatState extends State<Chat> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        for (var message in widget.messages)
+          Paragraph('${message.name}: ${message.message}'),
+        const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
@@ -41,10 +44,14 @@ class _ChatState extends State<Chat> {
                         _controller.clear();
                       }
                     },
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: 'Leave a message',
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      // prefixIcon: Icon(Icons.mail),
+                      // border: OutlineInputBorder(),
+                      // labelText: 'Mail',
                     ),
+                    controller: _controller,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Enter your message to continue';
@@ -81,10 +88,6 @@ class _ChatState extends State<Chat> {
             ),
           ),
         ),
-        const SizedBox(height: 8),
-        for (var message in widget.messages)
-          Paragraph('${message.name}: ${message.message}'),
-        const SizedBox(height: 8),
       ],
     );
   }
