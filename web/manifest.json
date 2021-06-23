@@ -1,6 +1,6 @@
 {
-    "name": "second_hand",
-    "short_name": "second_hand",
+    "name": "chatter",
+    "short_name": "chatter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:second_hand/provider/applicationState.dart';
+import 'package:chatter/provider/applicationState.dart';
 import '../src/signUp.dart';
 import '../src/home.dart';
 
