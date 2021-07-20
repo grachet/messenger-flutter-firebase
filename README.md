@@ -2,6 +2,8 @@
 
 Messenger app in Flutter with only one public channel.
 
+[Download in Playstore](https://play.google.com/store/apps/details?id=com.grachet.chatter)
+
 Functionnalities :
 
 - send a message 
